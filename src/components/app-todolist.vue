@@ -11,7 +11,7 @@
     <div class="newTask">
       <input type="text" placeholder="Task..." id="taskInput" />
       <button name="add" @click="addTask">Add Task</button>
-      <button name="clear" @click='clear'>
+      <button name="clear" @click="clear">
         Clear Input
       </button>
     </div>
@@ -26,7 +26,7 @@
           <p>{{ task.title }}</p>
           <ion-icon name="checkmark-outline" v-show="task.completed"></ion-icon>
         </div>
-        <p v-show='filter[0] == null'>ToDo end :C</p>
+        <p v-show="filter[0] == null">ToDo end :C</p>
       </li>
     </ul>
   </div>
@@ -54,8 +54,8 @@ export default {
       input.value = "";
     },
     clear: function() {
-      if (document.getElementById('taskInput').value != undefined) {
-        document.getElementById('taskInput').value = "";
+      if (document.getElementById("taskInput").value != undefined) {
+        document.getElementById("taskInput").value = "";
       }
     },
     completed: function(task) {
