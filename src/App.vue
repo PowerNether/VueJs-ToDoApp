@@ -25,7 +25,7 @@ export default {
     appTodolist,
   },
   mounted: function() {
-    Axios.get("https://jsonplaceholder.typicode.com/users/1/todos")
+    Axios.get("https://jsonplaceholder.typicode.com/users/1/todos?_limit=3")
       .then((response) => response.data)
       .then((data) => (this.ToDoList = data));
     document.getElementById("loading").style.display = "none";
@@ -39,9 +39,10 @@ export default {
 body,
 html {
   font-family: "Poppins", sans-serif;
+  min-height: 100%;
 }
 body {
-  background: linear-gradient(150deg, #5c47ad, #b070ce);
+  background: linear-gradient(150deg, #5c47ad, #b070ce) no-repeat;
   color: #fff;
 }
 #app {
@@ -58,6 +59,7 @@ body {
     padding: 10px 0;
   }
   .newTask {
+    background-color: #e7e9f8;
     width: 100%;
     display: flex;
     justify-content: space-around;
@@ -129,11 +131,9 @@ body {
     border-radius: 0 0 18px 18px;
     background-color: #e7e9f8;
     padding: 10px 20px;
-    height: 520px;
     display: flex;
     flex-direction: column;
     li:nth-child(1) {
-      height: 456px;
       width: 100%;
       display: flex;
       flex-direction: column;
@@ -159,10 +159,18 @@ body {
         p {
           max-width: 200px;
           min-height: 100px;
+          color: #fff;
+          text-align: left;
+          overflow: auto;
         }
         ion-icon {
           font-size: 40px;
         }
+      }
+      p {
+        overflow: hidden;
+        color: #000;
+        text-align: center;
       }
     }
     .pageButton {
